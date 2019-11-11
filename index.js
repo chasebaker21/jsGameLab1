@@ -6,31 +6,28 @@ let grantDeaths = 0;
 let userDeaths = 0;
 let userWins = 0;
 
+/**
+ * // damage to each player either 1 or 2
+ * // log out damage + health
+ */
 while(userHealth > 0 && grantDeaths < 3) {
-// damage to each player either 1 or 2
 grantHealth -= Math.floor((Math.random() * 2) + 1);
 userHealth -= Math.floor((Math.random() * 2) + 1);
-// log out damage + health
 console.log("Grant the Mighty Chicken has " + grantHealth + " health left.");
 console.log(userName + " has " + userHealth + " health left.");
-
-
 
 if (grantHealth <= 0) {
     grantDeaths++;
     userWins++;
     grantHealth = 10;
-    // console.log("Grant's total deaths: " + grantDeaths);
-    // console.log(userName + "'s wins: " + userWins);
 } else if (userHealth <= 0) {
     userDeaths++;
     break;
 }
     
 }
-
+// gameOver function is used to log the results of the game
 function gameOver() {
-    // when game is over display winner
     if (grantDeaths === 3 && userHealth <= 0) { 
         console.log("You both died");          
 
